@@ -6,7 +6,7 @@ This document contains the guide to collecting, creating, and analyzing the inte
 
 ## Cloning this repository
 cd ~/Documents/  # or any other base directory you want
-git clone https://github.com/bperkinsj/alphafold_interfaces/
+git clone https://github.com/bperkinsj/alphafold_interfaces.git
 cd alphafold_interfaces/
 
 ## Setting up your virtual environment
