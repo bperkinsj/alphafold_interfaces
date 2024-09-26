@@ -15,7 +15,7 @@ def download_alphafold_structures(uniprot_accs, output_dir):
     fetcher.fetch_metadata(multithread=True, workers=4)
 
     # Download the structures
-    fetcher.download_all_files(pdb=True, cif=True, multithread=True, workers=4)
+    fetcher.download_all_files(pdb=True, cif=False, multithread=True, workers=4)
 
 def determine_missing(uniprots, output_dir):
     '''
@@ -23,12 +23,12 @@ def determine_missing(uniprots, output_dir):
     and returns a list of UniProt accessions that were not downloaded.
     '''
 
-    struct_dir = os.path.join(output_dir, 'pdb')
+    struct_dir = os.path.join(output_dir, 'pdb_files')
     structures = os.listdir(struct_dir)
-    downloaded_uniprots = [s.split('-')[1] for s in structures]
+    downloaded_uniprots = [s.split('.')[0] for s in structures]
     missing_uniprots = [u for u in uniprots if u not in downloaded_uniprots]
 
-   return missing_uniprots
+    return missing_uniprots
 
 def string2range(x):
     

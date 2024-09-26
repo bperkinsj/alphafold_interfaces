@@ -32,6 +32,16 @@ $ conda activate myenv
 ```
 
 ## Downloading AlphaFold2 structures
+
+The list of proteins should be in the format:
+
+uniprot,region_1,region_2
+P28482,1-41,223-409
+P62826,47-79,234-798,
+...
+
+where region_1 represents the inhibitory module and region_2 represents the functional domain.
+
 Once you have the list of proteins of interest, run scripts/download_alphafold.py, making sure to pass it the file.
 
 ```

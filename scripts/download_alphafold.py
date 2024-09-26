@@ -12,6 +12,8 @@ def download_alphafold(args):
     # Read the input file
     df = pd.read_csv(args.file)
 
+    print(df.head())
+
     # Get the UniProt accessions
     uniprots = df['uniprot'].tolist()
 
@@ -30,7 +32,7 @@ def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('-f', '--file', required=True, type=str, help='Path to the input file')
-    parser.add_argument('-o', '--output', required=True, type=str, help='Path to the output directory', default='data')
+    parser.add_argument('-o', '--output', type=str, help='Path to the output directory', default='data')
 
     args = parser.parse_args()
 
