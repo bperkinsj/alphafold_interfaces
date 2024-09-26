@@ -22,13 +22,13 @@ $cd ~/some/directory/path/alphafold_interfaces
 Create a new environment using the environment.yml file.
 
 ```
-$ conda env create -f interfaces.yml
+$ conda env create -f environment.yml
 ```
 
 Activate the environment
 
 ```
-$ conda activate myenv
+$ conda activate interfaces
 ```
 
 ## Downloading AlphaFold2 structures
