@@ -22,7 +22,7 @@ $cd ~/some/directory/path/alphafold_interfaces
 Create a new environment using the environment.yml file.
 
 ```
-$ conda env create -f rmsd_snek.yml
+$ conda env create -f interfaces.yml
 ```
 
 Activate the environment
