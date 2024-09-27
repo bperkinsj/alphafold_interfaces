@@ -1,5 +1,8 @@
 import os
 from alphafetcher import AlphaFetcher
+from Bio.PDB import NeighborSearch, Selection
+from Bio.PDB.PDBParser import PDBParser
+import numpy as np
 
 def download_alphafold_structures(uniprot_accs, output_dir):
     '''

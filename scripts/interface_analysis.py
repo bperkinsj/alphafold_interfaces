@@ -55,17 +55,17 @@ def get_interfaces(args):
         model = 0
         fn = row['filename']
 
-    # Get structure
-    structure = utils.get_pdb_struct_dict(uniprot, fn, args.structures)
+        # Get structure
+        structure = utils.get_pdb_struct_dict(uniprot, fn, args.structures)
 
-    atoms_ns = utils.get_domain_residues(region_1_res, region_2_res, structure, model, chain)
+        atoms_ns = utils.get_domain_residues(region_1_res, region_2_res, structure, model, chain)
 
-    # Get interacting residues
-    interacting_pairs, interface_res, len_interface_res = utils.domain_neighborsearch(region_1_res, region_2_res, atoms_ns)
+        # Get interacting residues
+        interacting_pairs, interface_res, len_interface_res = utils.domain_neighborsearch(region_1_res, region_2_res, atoms_ns)
 
-    df.loc[i, 'interacting_residue_pairs'] = interacting_pairs
-    df.loc[i, 'interface_residues'] = interface_res
-    df.loc[i, 'number_interface_residues'] = len_interface_res
+        df.loc[index, 'interacting_residue_pairs'] = interacting_pairs
+        df.loc[index, 'interface_residues'] = interface_res
+        df.loc[index, 'number_interface_residues'] = len_interface_res
 
     # Save the dataframe
     df.to_csv(os.path.join(args.output, args.interface_file), index=False)
@@ -74,11 +74,10 @@ def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('-f', '--file', required=True, type=str, help='Path to the input file')
-    parser.add_argument('-s', '--structures', required=True, type=str, help='Path to the directory containing the AlphaFold2 structures',
-                        default='data/pdb')
-    parser.add_argument('-o', '--output', required=True, type=str, help='Path to the output directory', default='data/output')
-    parser.add_argument('-i', '--interface_file', required=True, type=str, help='Interface filename',
-                        default='interface_analysis.csv')
+    parser.add_argument('-s', '--structures', type=str, help='Path to the directory containing the AlphaFold2 structures',
+                        default='data/pdb_files')
+    parser.add_argument('-o', '--output', type=str, help='Path to the output directory', default='data/output')
+    parser.add_argument('-i', '--interface_file', type=str, help='Interface filename', default='interface_analysis.csv')
     args = parser.parse_args()
 
     get_filenames(args)

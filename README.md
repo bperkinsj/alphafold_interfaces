@@ -61,3 +61,12 @@ You will now be using these a3m files to create the structures.
 On Alliance Canada, follow the instructions [here](https://github.com/alirezaomidi/colabfold-scripts) to set up ColabFold. Place all of your MSAs into a single folder and provide the path to the folder when you run single-gpu.sh instead of to the individual files.
 
 ## Analyzing the Interfaces
+Run interface_analysis, again passing it the list of the proteins of interest:
+
+```
+python scripts/interface_analysis.py -f data/proteins_of_interest.csv
+```
+
+Make sure that all of your structure files are in data/pdb_files.
+
+The script will spit out a file, interface_analysis.csv, containing information on the interacting residues. 
