@@ -18,7 +18,7 @@ def download_alphafold_structures(uniprot_accs, output_dir):
     fetcher.fetch_metadata(multithread=True, workers=4)
 
     # Download the structures
-    fetcher.download_all_files(pdb=True, cif=False, multithread=True, workers=4)
+    fetcher.download_all_files(pdb=True, cif=False, pae_data=True, multithread=True, workers=4)
 
 def determine_missing(uniprots, output_dir):
     '''
