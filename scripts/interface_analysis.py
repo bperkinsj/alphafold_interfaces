@@ -82,6 +82,8 @@ def main():
 
     get_filenames(args)
 
+    get_interfaces(args)
+
 
 if __name__ == '__main__':
     main()
